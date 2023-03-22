@@ -1,0 +1,186 @@
+{
+    "name": "PlayerMovement",
+    "maps": [
+        {
+            "name": "Movement",
+            "id": "d69c480c-c658-4db4-97db-2f1d63ea28d6",
+            "actions": [
+                {
+                    "name": "walk",
+                    "type": "PassThrough",
+                    "id": "4262762c-684e-46ec-aec4-f7d001116876",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "look",
+                    "type": "PassThrough",
+                    "id": "eb043f52-4032-4418-9dd7-194b41a1875d",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "jump",
+                    "type": "PassThrough",
+                    "id": "dfae4fd1-ff84-4d42-8f50-0f4eeb85e749",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "run",
+                    "type": "PassThrough",
+                    "id": "c9c851f5-5c35-4d11-9a6c-34cf92bf3979",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "scroll/Y",
+                    "type": "PassThrough",
+                    "id": "061d9d91-ffa1-433d-ab80-8e1ec3377414",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "2D Vector",
+                    "id": "b6f30321-5b1d-4567-b299-1ae0b98f4b67",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "walk",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "7777ad8c-5863-44ab-b5a0-83a1bacf149c",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "inclusive",
+                    "action": "walk",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "7a4e2ff4-0d97-4f6c-8aeb-5e956c76bf81",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "inclusive",
+                    "action": "walk",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "85930eaf-0db4-43a8-8f81-230fd98b8297",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "inclusive",
+                    "action": "walk",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "19724e48-6a89-4d15-b794-629cbc7c2147",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "inclusive",
+                    "action": "walk",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "119c9ce0-9a37-4eb2-994c-8d1cd83cabb6",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "inclusive",
+                    "action": "look",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "15b51594-2bd7-41bb-b9d6-84731d4ebc77",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "inclusive",
+                    "action": "jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "57e72352-7e5f-4785-bd38-53a856c041b7",
+                    "path": "<Keyboard>/leftShift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "inclusive",
+                    "action": "run",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fa6036bf-2fbc-4445-beae-2ae0ebf6f2b5",
+                    "path": "<Mouse>/scroll/y",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "inclusive",
+                    "action": "scroll/Y",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "UserInterface",
+            "id": "6504fc9b-0311-43d2-b0d5-cb7227527f44",
+            "actions": [
+                {
+                    "name": "cursorLock",
+                    "type": "PassThrough",
+                    "id": "ecd8f3d6-2e0f-4152-a94d-44f4cdddc03f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "38f38383-398a-4d5b-94f6-cbd01e40b8c6",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "inclusive",
+                    "action": "cursorLock",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "inclusive",
+            "bindingGroup": "inclusive",
+            "devices": []
+        }
+    ]
+}
