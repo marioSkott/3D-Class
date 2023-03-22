@@ -7,6 +7,7 @@ public class CharacterControllerScriptDemo : MonoBehaviour
     [SerializeField] CharacterController controller;
     [SerializeField] float moveSpeed;
     [SerializeField] float JumpSpeed;
+  
     [SerializeField] float gravity;
     [SerializeField] Vector3 moveBody;
     [SerializeField] bool isGrouneded;
@@ -17,11 +18,11 @@ public class CharacterControllerScriptDemo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var horizontal = Input.GetAxis("Horizontal");
-        var vertical = Input.GetAxis("Vertical");
-        var movement = new Vector3(horizontal, 0, vertical);
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+        Vector3 movement = new Vector3(horizontal, 0, vertical);
+      
         isGrouneded = Physics.Raycast(transform.position,Vector3.down, rayCastLenght, groundMask);
-
 
         moveBody = new Vector3(movement.x, moveBody.y, movement.z);
         if (isGrouneded)
@@ -30,7 +31,7 @@ public class CharacterControllerScriptDemo : MonoBehaviour
         }
         if (!isGrouneded)
         {
-            moveBody.y = gravity;
+            moveBody.y -= gravity*Time.deltaTime;
         }
         if (isGrouneded && Input.GetKeyDown(KeyCode.Space))
         {
