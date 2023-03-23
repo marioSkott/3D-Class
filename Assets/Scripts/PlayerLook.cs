@@ -41,13 +41,12 @@ public class PlayerLook : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        x += lookInput.x * 0.022f * mouseSensitivity;
-        //look around when walking
-        if (!(movementInput.y == 0f))
-        {
-            player.transform.localRotation = Quaternion.Euler(0f, x, 0f);
+        x += lookInput.x  * mouseSensitivity;
+        
+        
+        player.transform.localRotation = Quaternion.Euler(0f, x, 0f);
 
-        }
+        
     }
 
 
