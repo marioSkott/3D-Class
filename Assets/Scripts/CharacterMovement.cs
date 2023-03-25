@@ -99,7 +99,7 @@ public class CharacterMovement : MonoBehaviour
     private void FixedUpdate()
     {
         //run here or die
-        Vector3 movePosition = transform.right * movementInput.x * moveSpeed + transform.forward * movementInput.y * moveSpeed;
+        Vector3 movePosition = transform.right * movementInput.x * moveSpeed*0.2f + transform.forward * movementInput.y * moveSpeed;
         Vector3 newMovePosition = new Vector3(movePosition.x, rb.velocity.y, movePosition.z);
         rb.velocity = newMovePosition;
 
