@@ -12,9 +12,12 @@ public class EnemyScript : MonoBehaviour
     [SerializeField] float alertRadius;
     [SerializeField] Transform[]  wayPoints;
     [SerializeField] Vector3 currentTarget;
+    [SerializeField] bool playerIsSeen = false;
 
     [SerializeField] bool inRange=false;
     bool callReset=true;
+    RaycastHit hit;
+    bool see;
     void Start()
     {
         if (meshAgent == null)
@@ -31,12 +34,27 @@ public class EnemyScript : MonoBehaviour
 
         if(inRange)
         {
-            currentTarget = wayPoint.position;
-            callReset= true;
-            
+
+            see = Physics.Raycast(transform.position, -transform.position+wayPoint.position, out hit, alertRadius);
+
+            if(see && hit.collider.gameObject.tag == "Player") 
+            {
+                Debug.DrawLine(transform.position, hit.point);
+                callReset = true;
+                playerIsSeen = true;
+                currentTarget = wayPoint.position;
+            }
+            else
+            {
+                playerIsSeen = false;
+                currentTarget = Loiter();
+            }
+           
+
         }
         else
         {
+            playerIsSeen= false;
             currentTarget = Loiter();
         }
 
@@ -64,7 +82,7 @@ public class EnemyScript : MonoBehaviour
 
             if(Vector2.Distance(selfPos,tarPos) < 3f)
             {
-                Debug.Log("switch");
+                //Debug.Log("switch");
                 return GetRandomPos().position;
             }else
             {
